@@ -1,21 +1,27 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 import java.lang.annotation.ElementType;
+import java.util.List;
 
 @Entity
 public class UserEntity {
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    List<TodoEntity> todos;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NonNull
     private String username;
+    @NonNull
     private String password;
+
 
 
     public UserEntity() {
