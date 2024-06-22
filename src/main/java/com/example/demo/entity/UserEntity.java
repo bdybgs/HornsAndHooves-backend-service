@@ -9,6 +9,7 @@ import java.lang.annotation.ElementType;
 import java.util.List;
 
 @Entity
+@Table(name = "user")
 public class UserEntity {
 
 

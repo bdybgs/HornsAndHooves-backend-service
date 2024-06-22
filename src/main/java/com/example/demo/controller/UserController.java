@@ -31,7 +31,7 @@ public class UserController {
     @GetMapping
     public ResponseEntity getUsers() {
         try {
-            return ResponseEntity.ok("Сервер работает");
+            return ResponseEntity.ok(userService.getAllUsers());
         }
         catch (Exception e) {
             return ResponseEntity.badRequest()
